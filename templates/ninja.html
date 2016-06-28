@@ -1,0 +1,29 @@
+
+<html>
+<head>
+	<title>The Ninja Page!</title>
+
+</head>
+	<body>
+		{% with messages = get_flashed_messages() %}
+		    {% if messages %}
+		      {% for message in messages %}
+		        <p>{{message}}</p>
+		        {% if message == "It's Raphael" %}
+		        	<img src='{{ url_for('static', filename='img/red.jpg') }}'>
+				{% elif message == "It's Leonardo" %}
+		    		<img src='{{ url_for('static', filename='img/blue.jpg') }}'>
+				{% elif message == "It's Donatello" %}
+		    		<img src='{{ url_for('static', filename='img/purple.jpg') }}'>
+		    	{% elif message == "It's Michelangelo" %}
+		    		<img src='{{ url_for('static', filename='img/orange.jpg') }}'>
+		        {% else %}
+		            <img src='{{ url_for('static', filename='img/megan.jpg') }}'>
+		        {% endif %}
+		      {% endfor %}
+		    {% else %}
+		    	<img src='{{ url_for('static', filename='img/ninja.jpg') }}'>
+		    {% endif %}
+		  {% endwith %}
+	</body>
+</html>
